@@ -26,15 +26,27 @@ $Timetracker = new Timetracker;
 $Timetracker->add("Sync table in db");
 
 // Some Code
-$Timetracker->add("Loop throug posts");
+$Timetracker->add("Loop through posts");
 ```
 
 ### Show the Results
 Print to terminal
 
-> ```php
-> $Timetracker->logTable();
-> ```
+```php
+$Timetracker->logTable();
+```
+Example output
+```
+Timing table:
+|----------------------------------------------------------------------|
+|  Num | Perc %|         Time | Description                            |
+|----------------------------------------------------------------------|
+|    1 |     0%| 00:00:00.002 | Init -> Sync table in db               |
+|    2 |    80%| 00:00:02.496 | Sync table in db -> Loop through posts |
+|    3 |    10%| 00:00:00.617 | Loop through posts -> Finnish          |
+|      |   100%| 00:00:03.088 | Total time                             |
+|______________________________________________________________________|
+```
 
 ---
 
@@ -52,12 +64,25 @@ $Memtracker = new Memtracker;
 $Memtracker->add("Sync table in db");
 
 // Some Code
-$Memtracker->add("Loop throug posts");
+$Memtracker->add("Loop through posts");
 ```
 
 ### Show the Results
 Print to terminal
 
-> ```php
-> $Memtracker->logTable();
-> ```
+```php
+$Memtracker->logTable();
+```
+
+Example output:
+```
+Memory table:
+Peaking at: 5 MB
+|----------------------------------------------------------------------|
+|  Num | Perc %|     Memory | Description                              |
+|----------------------------------------------------------------------|
+|    1 |    12%|       1 MB | Init -> Sync table in db                 |
+|    2 |    62%|       5 MB | Sync table in db -> Loop through posts   |
+|    3 |    25%|       2 MB | Loop through posts -> Finnish            |
+|______________________________________________________________________|
+```
